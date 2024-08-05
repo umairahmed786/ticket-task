@@ -1,4 +1,4 @@
 class Project < ApplicationRecord
-  belongs_to :organization
+  acts_as_tenant :organization
   belongs_to :user 
 end
