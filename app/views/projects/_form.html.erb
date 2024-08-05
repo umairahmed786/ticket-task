@@ -21,6 +21,11 @@
   </div>
 
   <div>
+    <%= form.label :admin_id, "Admin" %><br>
+    <%= form.select :admin_id, options_from_collection_for_select(@users, 'id', 'name', project.admin_id) %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
