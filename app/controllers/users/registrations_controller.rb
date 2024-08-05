@@ -5,14 +5,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+    super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    binding.pry
+    @user = User.new(sign_up_params)
+    @user.organization_id = params[:user][:organization_id]
+    @user.role_id = params[:user][:role_id]
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,7 +43,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def sign_up_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :role_id, :organization_id)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
