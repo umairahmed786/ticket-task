@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  field: MyString
+  old_value: MyString
+  new_value: MyString
+  organization: one
+
+two:
+  field: MyString
+  old_value: MyString
+  new_value: MyString
+  organization: two
