@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.4'
 
-
-gem 'bootstrap'
 gem 'cancancan'
 gem 'acts_as_tenant'
 gem 'bootstrap_form', '~> 5.4'

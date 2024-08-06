@@ -1,5 +1,7 @@
 class OrganizationsController < ApplicationController
-  skip_before_action :set_tenant, only: %i[new create]
+  skip_before_action :set_tenant, only: %i[new create index]
+
+  def index; end
 
   def new
     @organization = Organization.new
@@ -17,9 +19,8 @@ class OrganizationsController < ApplicationController
         host: host_with_subdomain,
         port:,
         path: new_user_registration_path,
-        query: { organization_id: @organization.id, role_id: owner_role.id }.to_query
+        query: { role_id: owner_role.id }.to_query
       ).to_s
-
       redirect_to url_with_subdomain
     else
       render :new

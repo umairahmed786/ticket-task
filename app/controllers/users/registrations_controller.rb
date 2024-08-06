@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     @user = User.new
+    @role_id = params[:role_id]
     super
   end
 

@@ -13,7 +13,7 @@ class CustomDeviseMailer < Devise::Mailer
     # Manually construct the confirmation URL with the subdomain
     opts[:redirect_url] = URI::HTTP.build(
       host: host_with_subdomain,
-      port: port,
+      port:,
       path: confirmation_url(record, confirmation_token: @token)
     ).to_s
 
